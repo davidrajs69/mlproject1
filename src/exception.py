@@ -11,11 +11,12 @@ class CustomException(Exception):
         self.error_message = error_message_detail(error_message, error_detail)
 
     def __str__(self):
-        logging.info(self.error_message)
+        logging.error(self.error_message)
         return self.error_message
 
  
 try:
     a = 1 / 0
 except Exception as e:
+    logging.info("Division by zero error occurred")
     raise CustomException(e, sys)
